@@ -1,0 +1,96 @@
+<XMLDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PATH="blocks/hierarchy/db" VERSION="20141020" COMMENT="XMLDB file for Moodle blocks/hierarchy" xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+    <TABLES>
+        <TABLE NAME="hierarchy_aliaslist" COMMENT="Joining Table Holding Alias Information">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="true"/>
+                <FIELD NAME="string" TYPE="text" NOTnull="true" SEQUENCE="false"/>
+                <FIELD NAME="override" TYPE="text" NOTnull="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="hierarchy_category" COMMENT="Holds the categories for the tags">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="true"/>
+                <FIELD NAME="name" TYPE="text" NOTnull="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="hierarchy_ismanager" COMMENT="Lists all managers">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="18" NOTnull="false" SEQUENCE="false"/>
+                <FIELD NAME="active" TYPE="int" LENGTH="2" NOTnull="false" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="hierarchy_managerlog" COMMENT="hierarchy_managerlog table retrofitted from MySQL">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="18" NOTnull="false" SEQUENCE="false"/>
+                <FIELD NAME="adminid" TYPE="int" LENGTH="18" NOTnull="false" SEQUENCE="false"/>
+                <FIELD NAME="action" TYPE="text" NOTnull="false" SEQUENCE="false"/>
+                <FIELD NAME="date" TYPE="datetime" NOTnull="false" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="hierarchy_managertags" COMMENT="hierarchy_managertags table retrofitted from MySQL">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="18" NOTnull="false" SEQUENCE="false"/>
+                <FIELD NAME="tagid" TYPE="int" LENGTH="18" NOTnull="false" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="hierarchy_tags" COMMENT="hierarchy_tags table retrofitted from MySQL">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="true"/>
+                <FIELD NAME="category" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="false"/>
+                <FIELD NAME="name" TYPE="text" NOTnull="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="hierarchy_usertags" COMMENT="hierarchy_usertags table retrofitted from MySQL">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="false"/>
+                <FIELD NAME="tagid" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="hierarchy_usertags_backup" COMMENT="hierarchy_usertags_backup table retrofitted from MySQL">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="false"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="false"/>
+                <FIELD NAME="tagid" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="false"/>
+                <FIELD NAME="date" TYPE="datetime" NOTnull="false" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+          <TABLE NAME="hierarchy_rolesync" COMMENT="hierarchy_rolesync table retrofitted from MySQL">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="true"/>
+                <FIELD NAME="profileid" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="false"/>
+                <FIELD NAME="roleid" TYPE="int" LENGTH="18" NOTnull="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>
